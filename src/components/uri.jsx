@@ -6,7 +6,7 @@ const Uri = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    const url = `https://localhost:5173/vote/${pollId}`;
+    const url = `https://polly-ccc.netlify.app/vote/${pollId}`;
     navigator.clipboard
       .writeText(url)
       .then(() => {
@@ -26,7 +26,7 @@ const Uri = () => {
         </div>
         <div className="flex flex-col md:flex-row w-full p-3">
           <div className="bg-[var(--retro_bg_light)] border-[var(--retro_bg_med)] border-2 mb-2 md:mb-0 md:mr-3 w-full md:w-[70%] p-3 rounded-lg text-[var(--retro_red)] overflow-hidden text-ellipsis whitespace-nowrap text-center">
-            {`https://localhost:5173/vote/${pollId}`}
+            {`https://polly-ccc.netlify.app/vote/${pollId}`}
           </div>
           <button
             onClick={handleCopy}
