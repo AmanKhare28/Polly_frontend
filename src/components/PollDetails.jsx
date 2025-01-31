@@ -10,6 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const PollDetails = () => {
   const [error, setError] = useState("");
   const [pollDetails, setPollDetails] = useState(null);
+  const [copied, setCopied] = useState(false);
   const { pollId } = useParams();
 
   useEffect(() => {
@@ -125,18 +126,19 @@ const PollDetails = () => {
               )}
             </p>
           </div>
+
+          <button
+            onClick={handleCopy}
+            className="w-full md:w-[30%] bg-[var(--retro_bg_light)] rounded-lg text-[var(--retro_blue)] cursor-pointer p-2"
+          >
+            {copied ? "Copied" : "Copy"}
+          </button>
         </div>
       ) : (
         <div className="text-[var(--retro_blue)] text-center text-lg">
           Loading poll details...
         </div>
       )}
-      <button
-        onClick={handleCopy}
-        className="w-full md:w-[30%] bg-[var(--retro_blue)] rounded-lg text-[var(--retro_bg_light)] cursor-pointer p-2"
-      >
-        {copied ? "Copied" : "Copy"}
-      </button>
     </div>
   );
 };
