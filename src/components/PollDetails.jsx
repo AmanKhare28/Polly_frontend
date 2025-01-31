@@ -60,6 +60,19 @@ const PollDetails = () => {
       }
     : null;
 
+  const handleCopy = () => {
+    const url = `https://polly-ccc.netlify.app/vote/${pollId}`;
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
   return (
     <div className="min-h-screen bg-[var(--retro_bg_dark)] text-[var(--retro_blue)] p-8">
       {error ? (
@@ -118,6 +131,12 @@ const PollDetails = () => {
           Loading poll details...
         </div>
       )}
+      <button
+        onClick={handleCopy}
+        className="w-full md:w-[30%] bg-[var(--retro_blue)] rounded-lg text-[var(--retro_bg_light)] cursor-pointer p-2"
+      >
+        {copied ? "Copied" : "Copy"}
+      </button>
     </div>
   );
 };
