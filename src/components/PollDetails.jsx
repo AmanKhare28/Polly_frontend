@@ -75,7 +75,7 @@ const PollDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--retro_bg_dark)] text-[var(--retro_blue)] p-8">
+    <div className="min-h-screen bg-[var(--retro_bg_dark)] text-[var(--retro_blue)] p-8 overflow-hidden">
       {error ? (
         <div className="text-red-500 text-lg">{error}</div>
       ) : pollDetails ? (
@@ -129,7 +129,7 @@ const PollDetails = () => {
 
           <button
             onClick={handleCopy}
-            className="w-full md:w-[30%] bg-[var(--retro_bg_light)] rounded-lg text-[var(--retro_blue)] cursor-pointer p-2"
+            className="w-full sm:w-1/2 lg:w-1/3 bg-[var(--retro_bg_light)] rounded-lg text-[var(--retro_blue)] cursor-pointer p-2 transition-all duration-300 hover:bg-opacity-80 active:scale-95"
           >
             {copied ? "Copied" : "Copy"}
           </button>
