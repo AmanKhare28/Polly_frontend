@@ -18,6 +18,7 @@ const VotePage = () => {
           "https://polly-backend.onrender.com/api/poll/fetch",
           { pollId }
         );
+        console.log(response.data);
         setPoll(response.data);
       } catch (error) {
         showPopup(
@@ -72,6 +73,14 @@ const VotePage = () => {
 
   if (isLoading) {
     return <div className="text-center text-cyan-100">Loading...</div>;
+  }
+
+  if (poll && !poll.active) {
+    return (
+      <div className="text-center text-red-500 font-bold">
+        This poll is not accepting responses.
+      </div>
+    );
   }
 
   return (
@@ -129,4 +138,5 @@ const VotePage = () => {
     </div>
   );
 };
+
 export default VotePage;
